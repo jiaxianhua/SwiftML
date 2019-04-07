@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KNN Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/KNN" class="dashAnchor"></a>
+    <a title="KNN Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (93% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        KNN Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BaseEstimator.html">BaseEstimator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/KNN.html">KNN</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ClassifierMixin.html">ClassifierMixin</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>KNN</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">KNN</span><span class="o">&lt;</span><span class="kt">Feature</span><span class="p">,</span> <span class="kt">Label</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Feature</span> <span class="p">:</span> <span class="kt">Numeric</span></code></pre>
+
+                </div>
+              </div>
+            <p>KNN</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC1k33_6E0E8406C7C8514A02A7D85FD49C52C1LLSivp"></a>
+                    <a name="//apple_ref/swift/Property/k" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC1k33_6E0E8406C7C8514A02A7D85FD49C52C1LLSivp">k</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of neighbors to use by default for :meth:<code>kneighbors</code> queries</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSaySayxGGvp"></a>
+                    <a name="//apple_ref/swift/Property/X" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSaySayxGGvp">X</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Training set</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">X</span><span class="p">:</span> <span class="p">[[</span><span class="kt">Feature</span><span class="p">]]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC1y33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayq_Gvp"></a>
+                    <a name="//apple_ref/swift/Property/y" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC1y33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayq_Gvp">y</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Target values</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">y</span><span class="p">:</span> <span class="p">[</span><span class="kt">Label</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC1kACyxq_GSi_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(k:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC1kACyxq_GSi_tcfc">init(k:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC3fityySaySayxGG_Sayq_GtF"></a>
+                    <a name="//apple_ref/swift/Method/fit(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC3fityySaySayxGG_Sayq_GtF">fit(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fit to data</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fit</span><span class="p">(</span><span class="n">_</span> <span class="kt"><a href="../Classes/KNN.html#/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSaySayxGGvp">X</a></span><span class="p">:</span> <span class="p">[[</span><span class="kt">Feature</span><span class="p">]],</span> <span class="n">_</span> <span class="nv">y</span><span class="p">:</span> <span class="p">[</span><span class="kt">Label</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>X</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Training set</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>y</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Target values</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC7predictySayq_G_SaySayxGGtAGF"></a>
+                    <a name="//apple_ref/swift/Method/predict(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC7predictySayq_G_SaySayxGGtAGF">predict(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Labels for xTest</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">predict</span><span class="p">(</span><span class="n">_</span> <span class="nv">xTest</span><span class="p">:</span> <span class="p">[[</span><span class="kt">Feature</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="p">([</span><span class="kt">Label</span><span class="p">],</span> <span class="p">[[</span><span class="kt">Feature</span><span class="p">]])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>xTest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Training set</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Target values and K nearest X</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC16nearestNeighbors33_6E0E8406C7C8514A02A7D85FD49C52C1LL3forSaySiGSayxG_tF"></a>
+                    <a name="//apple_ref/swift/Method/nearestNeighbors(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC16nearestNeighbors33_6E0E8406C7C8514A02A7D85FD49C52C1LL3forSaySiGSayxG_tF">nearestNeighbors(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get k-closest neighbors for instance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">nearestNeighbors</span><span class="p">(</span><span class="k">for</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>indeces</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC5label33_6E0E8406C7C8514A02A7D85FD49C52C1LL4fromq_SaySiG_tF"></a>
+                    <a name="//apple_ref/swift/Method/label(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC5label33_6E0E8406C7C8514A02A7D85FD49C52C1LL4fromq_SaySiG_tF">label(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the predicted label from the indeces of k-closest neighbors</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">label</span><span class="p">(</span><span class="n">from</span> <span class="nv">indices</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Label</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indices</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>k-closest neighbors indeces</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Label</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog3KNNC17euclideanDistanceySdSayxG_AEtF"></a>
+                    <a name="//apple_ref/swift/Method/euclideanDistance(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog3KNNC17euclideanDistanceySdSayxG_AEtF">euclideanDistance(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Helper function to calculate euclidian distance</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">euclideanDistance</span><span class="p">(</span><span class="n">_</span> <span class="nv">xTrain</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">],</span> <span class="n">_</span> <span class="nv">xTest</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>xTrain</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>xTrain coordinate</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>xTest</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>xTest coordinate</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>euclidian distance</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="http://iosdevlog.com" target="_blank" rel="external">iOSDevLog</a>. All rights reserved. (Last updated: 2019-04-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

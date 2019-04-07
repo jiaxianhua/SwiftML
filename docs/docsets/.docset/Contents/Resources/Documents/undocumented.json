@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/iosdevlog/Desktop/AIDevLog/AIDevLog/KNN.swift",
+      "line": 21,
+      "symbol": "KNN.init(k:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/iosdevlog/Desktop/AIDevLog"
+}
