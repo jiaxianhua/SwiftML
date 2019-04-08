@@ -23,7 +23,7 @@ public struct KNN<Feature, Label: Hashable> {
     /// draw radius for debug
     public var debugRadiusCallback: (([Double]) -> ())? = nil
     
-    /// constructorLabels for xTest
+    /// Constructor
     ///
     /// - Parameters:
     ///   - k: k

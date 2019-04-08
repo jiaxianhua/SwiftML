@@ -11,6 +11,10 @@
 		DE1A9AEE2259D24A00CCC350 /* ARKNNViewController+Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A9AED2259D24A00CCC350 /* ARKNNViewController+Plot.swift */; };
 		DE1A9AF02259DC6800CCC350 /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A9AEF2259DC6800CCC350 /* Distance.swift */; };
 		DE1A9AF4225A088A00CCC350 /* ARKNNViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A9AF3225A088A00CCC350 /* ARKNNViewController+TableView.swift */; };
+		DE8C785F225B89BC008C098B /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C785E225B89BC008C098B /* KMeans.swift */; };
+		DE8C7860225B89BC008C098B /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C785E225B89BC008C098B /* KMeans.swift */; };
+		DE8C787F225BA63A008C098B /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C787E225BA63A008C098B /* Feature.swift */; };
+		DE8C7880225BA63A008C098B /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8C787E225BA63A008C098B /* Feature.swift */; };
 		DE924AF42258C8100066B702 /* AIDevLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEC0A5E522584283009B3499 /* AIDevLog.framework */; };
 		DE924AF52258C8100066B702 /* AIDevLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEC0A5E522584283009B3499 /* AIDevLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE924AFA2258C8470066B702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE924AF92258C8470066B702 /* LaunchScreen.storyboard */; };
@@ -74,6 +78,8 @@
 		DE1A9AED2259D24A00CCC350 /* ARKNNViewController+Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARKNNViewController+Plot.swift"; sourceTree = "<group>"; };
 		DE1A9AEF2259DC6800CCC350 /* Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		DE1A9AF3225A088A00CCC350 /* ARKNNViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARKNNViewController+TableView.swift"; sourceTree = "<group>"; };
+		DE8C785E225B89BC008C098B /* KMeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
+		DE8C787E225BA63A008C098B /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		DE924AF92258C8470066B702 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEC0A5E522584283009B3499 /* AIDevLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AIDevLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC0A5E822584283009B3499 /* AIDevLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIDevLog.h; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 				DEC0A5FF225842B8009B3499 /* Base.swift */,
 				DEC0A6022258A20A009B3499 /* KNN.swift */,
 				DE1A9AEF2259DC6800CCC350 /* Distance.swift */,
+				DE8C785E225B89BC008C098B /* KMeans.swift */,
+				DE8C787E225BA63A008C098B /* Feature.swift */,
 			);
 			path = AIDevLog;
 			sourceTree = "<group>";
@@ -399,8 +407,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE8C787F225BA63A008C098B /* Feature.swift in Sources */,
 				DE1A9AF02259DC6800CCC350 /* Distance.swift in Sources */,
 				DEC0A600225842B8009B3499 /* Base.swift in Sources */,
+				DE8C785F225B89BC008C098B /* KMeans.swift in Sources */,
 				DEC0A6032258A20A009B3499 /* KNN.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +433,9 @@
 				DE1A9AEE2259D24A00CCC350 /* ARKNNViewController+Plot.swift in Sources */,
 				DEC0A65C2258C09F009B3499 /* KNNViewController+Plot.swift in Sources */,
 				DEC0A63A2258B946009B3499 /* KNNViewController.swift in Sources */,
+				DE8C7880225BA63A008C098B /* Feature.swift in Sources */,
 				DEC0A6572258BEF2009B3499 /* Enums.swift in Sources */,
+				DE8C7860225B89BC008C098B /* KMeans.swift in Sources */,
 				DE1A9AF4225A088A00CCC350 /* ARKNNViewController+TableView.swift in Sources */,
 				DEC0A65A2258C055009B3499 /* KNNViewControler+UIPickerView.swift in Sources */,
 				DEC0A6382258B946009B3499 /* AppDelegate.swift in Sources */,

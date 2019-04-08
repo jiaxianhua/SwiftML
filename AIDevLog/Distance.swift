@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Distance {
-    
+
     /// Helper function to calculate euclidian distance
     ///
     /// - Parameters:
@@ -20,17 +20,17 @@ public struct Distance {
         guard x0.count == x1.count else {
             fatalError("Features' lengths are not equal")
         }
-        
+
         // Calculate euclidean distances sqrt((x1 - x0)^2 + (y1 - y0)^2)
         let euclideanDistance = sqrt(
             zip(x0, x1)
                 .map({ pow($0 - $1, 2) })
                 .reduce(0, +)
         )
-        
+
         return Double(euclideanDistance)
     }
-    
+
     // Convenience
     public static func euclideanDistance() -> (([Double], [Double]) -> Double) {
         return { self.euclideanDistance($0, $1) }
