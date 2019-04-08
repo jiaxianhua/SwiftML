@@ -23,11 +23,45 @@ public protocol FeatureProtocol {
     static func mean(_ items: [Self]) -> Self
 }
 
+// MARK: - Math Operator
+
+func + (left: Array<Double>, right: Array<Double>) -> Array<Double> {
+    var results = [Double]()
+    for idx in 0..<left.count {
+        results.append(left[idx] + right[idx])
+    }
+    return results
+}
+
+func / (left: Array<Double>, right: Double) -> Array<Double> {
+    var results = [Double](repeating: 0, count: left.count)
+    for (idx, value) in left.enumerated() {
+        results[idx] = value / right
+    }
+    return results
+}
+
+func + (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
+}
+
+func / (left: CGPoint, right: Double) -> CGPoint {
+    return CGPoint(x: left.x / CGFloat(right), y: left.y / CGFloat(right))
+}
+
+func + (left: SCNVector3, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3(x: left.x + right.x, y: left.y + right.y, z: left.z / right.z)
+}
+
+func / (left: SCNVector3, right: Double) -> SCNVector3 {
+    return SCNVector3(x: left.x / Float(right), y: left.y / Float(right), z: left.z / Float(right))
+}
+
 // MARK: - FeatureProtocol where Element == Double
 extension Array: FeatureProtocol where Element == Double {
     public static func mean(_ items: [Array<Element>]) -> Array<Element> {
-        let zeroArray = [Double](repeating: 0, count: items.count)
-        return items.reduce(zeroArray, +).map { $0 / Double(items.count) }
+        let zeroArray = [Double](repeating: 0, count: items.first!.count)
+        return items.reduce(zeroArray, +) / Double(items.count)
     }
 
     public func distanceTo(_ o: Array<Element>) -> Double {

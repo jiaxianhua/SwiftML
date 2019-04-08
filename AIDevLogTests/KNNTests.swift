@@ -1,5 +1,5 @@
 //
-//  AIDevLogTests.swift
+//  KNNTests.swift
 //  AIDevLogTests
 //
 //  Created by iosdevlog on 2019/4/6.
@@ -9,31 +9,31 @@
 import XCTest
 @testable import AIDevLog
 
-class AIDevLogTests: XCTestCase {
+class KNNTests: XCTestCase {
 
     class TestEstimator: BaseEstimator {
         @objc var count: Int
         @objc var desc: String
-        
+
         override init() {
             self.count = 0
             self.desc = "Hello AIDevLog"
-            
+
             super.init()
         }
-        
+
         init(count: Int, desc: String) {
             self.count = count
             self.desc = desc
-            
+
             super.init()
         }
-        
+
         required init(from decoder: Decoder) throws {
             fatalError("init(from:) has not been implemented")
         }
     }
-    
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -48,15 +48,15 @@ class AIDevLogTests: XCTestCase {
         let str = testEstimator.getParams(deep: false)
         XCTAssertTrue(str.contains("Hello AIDevLog"))
     }
-    
+
     func testKNN() {
-        let kNN = KNN<Double, Int>(k: 3)
+        let kNN = KNN<[Double], Int>(k: 3, distanceMetric: Distance.euclideanDistance())
         let X = [[1.0], [2], [3], [4]]
         let y = [0, 0, 1, 1]
-        kNN.fit(X, y)
-        
-        let label = kNN.predict([[1.2], [3]])
-        
+        kNN.fit(X: X, y: y)
+
+        let label = kNN.predict(XTest: [[1.2], [3]])
+
         XCTAssertEqual([0, 1], label)
     }
 

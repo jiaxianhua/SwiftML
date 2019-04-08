@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 /// K-Means clustering.
-class KMeans<Feature: FeatureProtocol> {
+public class KMeans<Feature: FeatureProtocol> {
 
     /// The number of clusters to form as well as the number of centroids to generate.
     let k: Int
@@ -80,7 +79,9 @@ class KMeans<Feature: FeatureProtocol> {
 
             // Take the average of all the data points that belong to each centroid.
             // This moves the centroid to a new position.
-            let newCenters = kClusters.map { Feature.mean($0) }
+            let newCenters = kClusters.map { sample -> Feature in
+                Feature.mean(sample)
+            }
 
             // Find out how far each centroid moved since the last iteration. If it's
             // only a small distance, then we're done.
@@ -99,14 +100,14 @@ class KMeans<Feature: FeatureProtocol> {
         centroids = centers
     }
 
-    func predict(_ point: Feature) -> Int {
+    private func predict(_ xTest: Feature) -> Int {
         assert(!centroids.isEmpty, "Exception: KMeans tried to fit on a non trained model.")
 
-        let centroidIndex = indexOfNearestCenter(point, centers: centroids)
+        let centroidIndex = indexOfNearestCenter(xTest, centers: centroids)
         return y[centroidIndex]
     }
 
-    func precict(_ XTest: [Feature]) -> [Int] {
+    func predict(_ XTest: [Feature]) -> [Int] {
         assert(!centroids.isEmpty, "Exception: KMeans tried to fit on a non trained model.")
 
         return XTest.map(predict)

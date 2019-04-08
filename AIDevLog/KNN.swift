@@ -9,7 +9,7 @@
 import Foundation
 
 /// KNN
-public struct KNN<Feature, Label: Hashable> {
+public class KNN<Feature, Label: Hashable> {
     
     /// Number of neighbors to use by default for :meth:`kneighbors` queries
     private var k: Int
@@ -39,7 +39,7 @@ public struct KNN<Feature, Label: Hashable> {
     /// - Parameters:
     ///   - X: Training set
     ///   - y: Target values
-    public mutating func fit(X: [Feature], y: [Label]) {
+    public func fit(X: [Feature], y: [Label]) {
         assert(X.count == y.count, "Length of Data not equal to length of Labels \(X.count) != \(y.count)")
         assert(k <= X.count, "Number of neighbors is less than total number of points")
         self.X = X
