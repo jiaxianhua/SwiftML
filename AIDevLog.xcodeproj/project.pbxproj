@@ -13,7 +13,6 @@
 		8BFA2F9A225C364F00E6BCBA /* MLCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F99225C364F00E6BCBA /* MLCollection.swift */; };
 		8BFA2F9C225C44C600E6BCBA /* MLHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F9B225C44C600E6BCBA /* MLHeaderCollectionReusableView.swift */; };
 		8BFA2F9E225C535D00E6BCBA /* KMeansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F9D225C535C00E6BCBA /* KMeansViewController.swift */; };
-		8BFA2FA0225C70F100E6BCBA /* KMeansViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F9F225C70F100E6BCBA /* KMeansViewController+CollectionView.swift */; };
 		8BFA2FA2225C715F00E6BCBA /* KMeansCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2FA1225C715F00E6BCBA /* KMeansCollectionViewCell.swift */; };
 		8BFA2FA4225C730A00E6BCBA /* ARKMeansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2FA3225C730A00E6BCBA /* ARKMeansViewController.swift */; };
 		8BFA2FA6225C7EF300E6BCBA /* KMeansViewController+Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2FA5225C7EF300E6BCBA /* KMeansViewController+Plot.swift */; };
@@ -96,7 +95,6 @@
 		8BFA2F99225C364F00E6BCBA /* MLCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCollection.swift; sourceTree = "<group>"; };
 		8BFA2F9B225C44C600E6BCBA /* MLHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		8BFA2F9D225C535C00E6BCBA /* KMeansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeansViewController.swift; sourceTree = "<group>"; };
-		8BFA2F9F225C70F100E6BCBA /* KMeansViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KMeansViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		8BFA2FA1225C715F00E6BCBA /* KMeansCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeansCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BFA2FA3225C730A00E6BCBA /* ARKMeansViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKMeansViewController.swift; sourceTree = "<group>"; };
 		8BFA2FA5225C7EF300E6BCBA /* KMeansViewController+Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KMeansViewController+Plot.swift"; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				8BFA2F9D225C535C00E6BCBA /* KMeansViewController.swift */,
-				8BFA2F9F225C70F100E6BCBA /* KMeansViewController+CollectionView.swift */,
 				8BFA2FA1225C715F00E6BCBA /* KMeansCollectionViewCell.swift */,
 				8BFA2FA3225C730A00E6BCBA /* ARKMeansViewController.swift */,
 				8BFA2FA5225C7EF300E6BCBA /* KMeansViewController+Plot.swift */,
@@ -495,7 +492,6 @@
 				8BFA2F98225C352700E6BCBA /* MLCollectionViewCell.swift in Sources */,
 				8BFA2F96225C348C00E6BCBA /* MainViewController+CollectionView.swift in Sources */,
 				8BFA2FAA225C908600E6BCBA /* KNNViewController+TableView.swift in Sources */,
-				8BFA2FA0225C70F100E6BCBA /* KMeansViewController+CollectionView.swift in Sources */,
 				DE1A9AEC2259D18D00CCC350 /* ARKNNViewController.swift in Sources */,
 				8BFA2F9E225C535D00E6BCBA /* KMeansViewController.swift in Sources */,
 				8BFA2F94225C343500E6BCBA /* MainViewController.swift in Sources */,

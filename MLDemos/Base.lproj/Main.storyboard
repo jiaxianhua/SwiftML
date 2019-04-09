@@ -323,20 +323,41 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="k: 3" id="PVx-2b-fsq"/>
-                                    <barButtonItem title="maxIter: 300" id="eXG-zo-cWb"/>
-                                    <barButtonItem title="minDist: 0.001" id="CfU-Nd-jPs"/>
+                                    <barButtonItem title="maxIter: 300" id="eXG-zo-cWb">
+                                        <connections>
+                                            <action selector="setMaxIteration:" destination="mz4-hQ-tfD" id="Em1-N8-a3Q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="minDist: 0.001" id="CfU-Nd-jPs">
+                                        <connections>
+                                            <action selector="setMinDistance:" destination="mz4-hQ-tfD" id="xKx-dd-aRk"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="5Bh-S3-KJ7"/>
-                                    <barButtonItem title="Reset" id="SiT-tI-Un3"/>
+                                    <barButtonItem title="Reset" id="SiT-tI-Un3">
+                                        <connections>
+                                            <action selector="reset" destination="mz4-hQ-tfD" id="dwR-O4-Q4P"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u26-nJ-uvL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.2219224849029563" green="0.95379290803108807" blue="0.91003450770468486" alpha="0.058511223591549297" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srm-hR-d2F">
+                                <rect key="frame" x="308" y="763" width="86" height="30"/>
+                                <state key="normal" title="Random 100"/>
+                                <connections>
+                                    <action selector="generalRamdom" destination="mz4-hQ-tfD" eventType="touchUpInside" id="yrx-HK-fGd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ziq-Py-Z8s" firstAttribute="top" secondItem="srm-hR-d2F" secondAttribute="bottom" constant="20" id="1OG-E6-47o"/>
                             <constraint firstItem="MvP-FS-ejy" firstAttribute="trailing" secondItem="u26-nJ-uvL" secondAttribute="trailing" id="923-xm-pgv"/>
+                            <constraint firstItem="MvP-FS-ejy" firstAttribute="trailing" secondItem="srm-hR-d2F" secondAttribute="trailing" constant="20" id="RuC-w5-Lsr"/>
                             <constraint firstItem="u26-nJ-uvL" firstAttribute="top" secondItem="MvP-FS-ejy" secondAttribute="top" id="Yfw-LV-ENY"/>
                             <constraint firstItem="ziq-Py-Z8s" firstAttribute="leading" secondItem="xAW-jk-WnE" secondAttribute="leading" id="ZXt-eE-2wa"/>
                             <constraint firstItem="MvP-FS-ejy" firstAttribute="trailing" secondItem="ziq-Py-Z8s" secondAttribute="trailing" id="eHH-OA-B4c"/>
@@ -347,7 +368,11 @@
                         <viewLayoutGuide key="safeArea" id="MvP-FS-ejy"/>
                     </view>
                     <navigationItem key="navigationItem" title="KMeans" id="FWH-iy-5Md">
-                        <barButtonItem key="rightBarButtonItem" title="Train" id="73g-N0-V7j"/>
+                        <barButtonItem key="rightBarButtonItem" title="Train" id="73g-N0-V7j">
+                            <connections>
+                                <action selector="train:" destination="mz4-hQ-tfD" id="tsk-EJ-7YH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="panelView" destination="u26-nJ-uvL" id="ITs-Ee-wJ4"/>

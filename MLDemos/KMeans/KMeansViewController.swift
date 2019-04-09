@@ -9,16 +9,17 @@
 import UIKit
 
 class KMeansViewController: UIViewController {
-
-    let imagesNamed = ["OvalSelected", "RectangleSelected", "TriangleSelected"]
     let radius: CGFloat = 5
 
-    public var k: Int = 3
-    public var maxIteration: Int = 30
-    public var X: [CGPoint] = []
-    public var y: [Int] = []
-    public var XTest: [CGPoint] = []
-    public var yTest: [Int] = []
+    var k: Int = 3
+    var maxIteration: Int = 30
+    var convergeDistance = 0.001
+    var X: [CGPoint] = []
+    var y: [Int] = []
+    var XTest: [CGPoint] = []
+    var yTest: [Int] = []
+    var trainLayer = [CAShapeLayer]()
+    var predictLayer = [CAShapeLayer]()
 
     var model: KMeans<CGPoint>!
 
@@ -34,16 +35,12 @@ class KMeansViewController: UIViewController {
     }
 
     @IBOutlet weak var trainBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var panelView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        model = KMeans(k: 3, maxIteration: maxIteration)
-        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
+        reset()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,25 +48,68 @@ class KMeansViewController: UIViewController {
 
         if let touch = touches.first {
             let position = touch.location(in: panelView)
-            switch mlStep {
-            case .train:
-                drawIn(position)
-                break
-            default:
-                drawIn(position)
-                break
+            drawIn(position)
+        }
+    }
+    
+    @IBAction func generalRamdom() {
+        reset()
+        X.append(contentsOf: generalPoints(100))
+        X.forEach{ drawIn($0) }
+    }
+
+    @IBAction func reset() {
+        mlStep = .train
+        X.removeAll()
+        y.removeAll()
+        XTest.removeAll()
+        yTest.removeAll()
+        trainLayer.removeAll()
+        predictLayer.removeAll()
+        
+        if let subLayers = panelView.layer.sublayers {
+            subLayers.forEach { $0.removeFromSuperlayer() }
+        }
+        model = KMeans<CGPoint>(k: k, maxIteration: maxIteration)
+    }
+
+    @IBAction func train(_ sender: Any) {
+        if mlStep == .train {
+            model.fit(X, convergeDistance: convergeDistance)
+            
+            for (label, centroid) in zip(model.y, model.centroids) {
+                print("\(label): \(centroid)")
             }
+            
+            y = model.predict(X)
+            print("\nClassifications")
+            for (feature, label) in zip(X, y) {
+                print("\(label): \(feature)")
+            }
+            drawTrainCluster()
+            mlStep = .predict
+        } else {
+            yTest = model.predict(XTest)
+            print("\nyTest Classifications")
+            for (feature, label) in zip(XTest, yTest) {
+                print("\(label): \(feature)")
+            }
+            drawPredictCluster()
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func setMaxIteration(_ sender: Any) {
     }
-    */
 
+    @IBAction func setMinDistance(_ sender: Any) {
+    }
+
+    func generalPoints(_ numPoints: Int) -> [CGPoint] {
+        var points = [CGPoint]()
+        for _ in 0..<numPoints {
+            let point = CGPoint(x: CGFloat(arc4random_uniform(UInt32(panelView.bounds.width))), y: CGFloat(arc4random_uniform(UInt32(panelView.bounds.height))))
+            points.append(point)
+        }
+        return points
+    }
 }
