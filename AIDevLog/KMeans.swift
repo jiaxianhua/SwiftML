@@ -22,7 +22,9 @@ public class KMeans<Feature: FeatureProtocol> {
 
     /// Sum of squared distances of samples to their closest cluster center.
     private(set) var centroids = [Feature]()
-
+    
+    public var debugCentroidsCallback: (([Feature]) -> ())? = nil
+    
     /// Constructor.
     ///
     /// - Parameters:
@@ -68,6 +70,7 @@ public class KMeans<Feature: FeatureProtocol> {
         var centerMoveDist = 0.0
 
         for _ in 0..<maxIteration {
+            debugCentroidsCallback?(centers)
             // This array keeps track of which sample belong to which centroids.
             var kClusters: [[Feature]] = Array(repeating: [], count: k)
 

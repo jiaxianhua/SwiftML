@@ -52,7 +52,6 @@
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBX-T1-i6K">
                                 <rect key="frame" x="0.0" y="208" width="414" height="610"/>
-                                <color key="backgroundColor" red="0.1179455413" green="1" blue="0.11858169909999999" alpha="0.058841329230000003" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dou-UM-hYV">
                                 <rect key="frame" x="0.0" y="208" width="414" height="610"/>
@@ -112,7 +111,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BBX-T1-i6K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5h2-M5-AaY"/>
                             <constraint firstItem="0rg-Du-7ux" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="B3t-fS-2z6"/>

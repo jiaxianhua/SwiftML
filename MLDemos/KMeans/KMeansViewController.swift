@@ -10,6 +10,7 @@ import UIKit
 
 class KMeansViewController: UIViewController {
     let radius: CGFloat = 5
+    var centerRadius: CGFloat = 1.0
 
     var k: Int = 3
     var maxIteration: Int = 30
@@ -20,6 +21,13 @@ class KMeansViewController: UIViewController {
     var yTest: [Int] = []
     var trainLayer = [CAShapeLayer]()
     var predictLayer = [CAShapeLayer]()
+    var centers = [CGPoint]() {
+        didSet {
+            for (index, center) in centers.enumerated() {
+                drawCenter(center: center, label: index)
+            }
+        }
+    }
 
     var model: KMeans<CGPoint>!
 
@@ -41,6 +49,7 @@ class KMeansViewController: UIViewController {
         super.viewDidLoad()
 
         reset()
+//            .title = String(describing: k)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,11 +63,12 @@ class KMeansViewController: UIViewController {
     
     @IBAction func generalRamdom() {
         reset()
-        X.append(contentsOf: generalPoints(100))
+        X.append(contentsOf: generalPoints(1000))
         X.forEach{ drawIn($0) }
     }
 
     @IBAction func reset() {
+        centerRadius = 1
         mlStep = .train
         X.removeAll()
         y.removeAll()
@@ -66,11 +76,15 @@ class KMeansViewController: UIViewController {
         yTest.removeAll()
         trainLayer.removeAll()
         predictLayer.removeAll()
-        
         if let subLayers = panelView.layer.sublayers {
             subLayers.forEach { $0.removeFromSuperlayer() }
         }
+        
         model = KMeans<CGPoint>(k: k, maxIteration: maxIteration)
+        model.debugCentroidsCallback = { [weak self] centers in
+            self?.centers = centers
+        }
+        
     }
 
     @IBAction func train(_ sender: Any) {

@@ -58,7 +58,7 @@ extension KMeansViewController {
     fileprivate func triangleLayer(_ position: CGPoint, alpha: CGFloat = 1) {
         let layer = CAShapeLayer()
         layer.position = position
-        layer.contents = UIImage(named: "triangle")?.image(alpha: alpha)?.cgImage
+        layer.contents = UIImage(named: "triangleLayer")?.image(alpha: alpha)?.cgImage
         layer.contentsGravity = CALayerContentsGravity.center
 
         panelView.layer.addSublayer(layer)
@@ -128,13 +128,28 @@ extension KMeansViewController {
         }
     }
 
-    func drawCircle(center: CGPoint, radius: CGFloat, alpha: CGFloat = 0.1) {
-        let r = self.radius + radius
-        let kNNCircleLayer = CAShapeLayer()
-        kNNCircleLayer.path = UIBezierPath(roundedRect: CGRect(x: center.x - r, y: center.y - r, width: r * 2, height: r * 2), cornerRadius: r).cgPath
-        kNNCircleLayer.fillColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: alpha).cgColor
-        kNNCircleLayer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
-        kNNCircleLayer.borderWidth = 1
-        panelView.layer.addSublayer(kNNCircleLayer)
+    
+    func drawCenter(center: CGPoint, label: Int, alpha: CGFloat = 1) {
+        var color = UIColor.red
+        switch label {
+        case 0:
+            color = .black
+        case 1:
+            color = .cyan
+        case 2:
+            color = .yellow
+        case 3:
+            color = .yellow
+        default:
+            color = .black
+            break
+        }
+        let shapeLayer = CAShapeLayer()
+        centerRadius += 0.3
+        shapeLayer.path = UIBezierPath(rect: CGRect(x: center.x - centerRadius, y: center.y - centerRadius, width: centerRadius * 2, height: centerRadius * 2)).cgPath
+        shapeLayer.fillColor = color.cgColor
+//        shapeLayer.borderColor = color.cgColor
+        shapeLayer.borderWidth = 0.1
+        panelView.layer.addSublayer(shapeLayer)
     }
 }

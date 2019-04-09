@@ -102,13 +102,12 @@ class KNNViewController: UIViewController {
         yTest.removeAll()
         
         cleanTest()
-
+        
+        model = KNN(k: k, distanceMetric: Distance.euclideanDistance())
+        
         model.debugRadiusCallback = { [weak self] radiuses in
             self?.radiuses = radiuses
         }
-        
-        trainBarButtonItem.title = String(describing: k)
-        model = KNN(k: k, distanceMetric: Distance.euclideanDistance())
     }
 
     @IBAction func selectK(_ sender: UIBarButtonItem) {
