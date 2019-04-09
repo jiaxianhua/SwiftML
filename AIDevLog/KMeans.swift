@@ -14,7 +14,7 @@ public class KMeans<Feature: FeatureProtocol> {
     /// The number of clusters to form as well as the number of centroids to generate.
     let k: Int
 
-    /// Labels of each point
+    /// Labels of each Sample
     let y: [Int]
 
     /// Maximum number of iterations of the k-means algorithm for a single run.
@@ -59,7 +59,7 @@ public class KMeans<Feature: FeatureProtocol> {
     /// Compute k-means clustering.
     ///
     /// - Parameters:
-    ///   - points: array-like.
+    ///   - X: array-like dataset feature.
     ///   - convergeDistance: the sum of distance.
     func fit(_ X: [Feature], convergeDistance: Double = 0) {
         // Randomly take k objects from the input data to make the initial centroids.
@@ -68,31 +68,28 @@ public class KMeans<Feature: FeatureProtocol> {
         var centerMoveDist = 0.0
 
         for _ in 0..<maxIteration {
-            // This array keeps track of which data points belong to which centroids.
+            // This array keeps track of which sample belong to which centroids.
             var kClusters: [[Feature]] = Array(repeating: [], count: k)
 
-            // For each data point, find the centroid that it is closest to.
-            for p in X {
-                let classIndex = indexOfNearestCenter(p, centers: centers)
-                kClusters[classIndex].append(p)
+            // For each sample, find the centroid that it is closest to.
+            for x in X {
+                let classIndex = indexOfNearestCenter(x, centers: centers)
+                kClusters[classIndex].append(x)
             }
 
-            // Take the average of all the data points that belong to each centroid.
+            // Take the average of all the sample that belong to each centroid.
             // This moves the centroid to a new position.
-            let newCenters = kClusters.map { sample -> Feature in
-                Feature.mean(sample)
-            }
+            let newCenters = kClusters.map { Feature.mean($0) }
 
-            // Find out how far each centroid moved since the last iteration. If it's
-            // only a small distance, then we're done.
-            centerMoveDist = 0.0
-            for idx in 0..<k {
-                centerMoveDist += centers[idx].distanceTo(newCenters[idx])
-            }
+            // Find out how far each centroid moved since the last iteration.
+            centerMoveDist = y
+                .map { centers[$0].distanceTo(newCenters[$0]) }
+                .reduce(0.0, +)
 
             centers = newCenters
 
-            if centerMoveDist > convergeDistance {
+            // If it's only a small distance, then we're done.
+            if centerMoveDist <= convergeDistance {
                 break
             }
         }
@@ -101,14 +98,12 @@ public class KMeans<Feature: FeatureProtocol> {
     }
 
     private func predict(_ xTest: Feature) -> Int {
-        assert(!centroids.isEmpty, "Exception: KMeans tried to fit on a non trained model.")
-
         let centroidIndex = indexOfNearestCenter(xTest, centers: centroids)
         return y[centroidIndex]
     }
 
     func predict(_ XTest: [Feature]) -> [Int] {
-        assert(!centroids.isEmpty, "Exception: KMeans tried to fit on a non trained model.")
+        assert(!centroids.isEmpty, "Exception: KMeans tried to predict on a non trained model.")
 
         return XTest.map(predict)
     }
