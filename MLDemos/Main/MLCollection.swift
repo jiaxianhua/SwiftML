@@ -11,6 +11,7 @@ import UIKit
 struct MLItem {
     var image: UIImage
     var title: String
+    var segue: String
 }
 
 struct MLSection {

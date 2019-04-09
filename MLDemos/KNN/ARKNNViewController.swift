@@ -21,9 +21,9 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
     let radius: CGFloat = 0.05
 
     public var X: [[Double]] = []
-    public var y: [GeometryType] = []
+    public var y: [Geometry3DType] = []
     public var XTest: [[Double]] = []
-    public var yTest: [GeometryType] = []
+    public var yTest: [Geometry3DType] = []
     public var radiuses: [Double] = [] {
         didSet {
             for (center, r) in zip(XTest, radiuses) {
@@ -44,7 +44,7 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
     }
 
     @IBOutlet weak var trainButton: UIButton!
-    var model = KNN<[Double], GeometryType>(k: 1, distanceMetric: Distance.euclideanDistance())
+    var model = KNN<[Double], Geometry3DType>(k: 1, distanceMetric: Distance.euclideanDistance())
 
     var mlStep = MLStep.train {
         didSet {
@@ -172,7 +172,7 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
             switch mlStep {
             case .train:
                 var node = SCNNode()
-                let geometry = GeometryType(rawValue: geometrySegmentControl.selectedSegmentIndex)!
+                let geometry = Geometry3DType(rawValue: geometrySegmentControl.selectedSegmentIndex)!
                 switch geometry {
                 case .box:
                     node = createBox()
@@ -212,7 +212,7 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func drawIn(_ position: SCNVector3, geometryType: GeometryType) {
+    func drawIn(_ position: SCNVector3, geometryType: Geometry3DType) {
         let geometry = SCNSphere(radius: radius/4)
         let node = SCNNode()
         node.geometry = geometry

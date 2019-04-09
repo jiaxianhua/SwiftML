@@ -11,27 +11,31 @@ import AIDevLog
 import ARKit
 
 class KNNViewController: UIViewController {
+    let imagesNamed = ["OvalSelected", "RectangleSelected", "TriangleSelected"]
 
     let radius: CGFloat = 5
 
-    public var X: [[Double]] = []
-    public var y: [GeometryType] = []
-    public var XTest: [[Double]] = []
-    public var yTest: [GeometryType] = []
-    public var radiuses: [Double] = [] {
+    var k: Int = 1
+    var X: [CGPoint] = []
+    var y: [Geometry2DType] = []
+    var XTest: [CGPoint] = []
+    var yTest: [Geometry2DType] = []
+    var radiuses: [Double] = [] {
         didSet {
             for (center, r) in zip(XTest, radiuses) {
-                drawCircle(center: CGPoint(x: center[0], y: center[1]), radius: CGFloat(r))
+                drawCircle(center: center, radius: CGFloat(r))
             }
         }
     }
+    var currentType = Geometry2DType.circle
     public var predictLayers: [CALayer] = []
+    var model = KNN<CGPoint, Geometry2DType>(k: 1, distanceMetric: Distance.euclideanDistance())
 
-    var model = KNN<[Double], GeometryType>(k: 1, distanceMetric: Distance.euclideanDistance())
-
-    @IBOutlet weak var kNNPickerView: UIPickerView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var panelView: UIView!
     @IBOutlet weak var trainBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var kBarBtuuonItem: UIBarButtonItem!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     var mlStep = MLStep.train {
         didSet {
@@ -47,18 +51,17 @@ class KNNViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        kNNPickerView.dataSource = self
-        kNNPickerView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
+
+        tableView.dataSource = self
+        tableView.delegate = self
         reset()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-//        if ARConfiguration.isSupported {
-//            let arvc = storyboard!.instantiateViewController(withIdentifier: String(describing: ARKNNViewController.self))
-//            present(arvc, animated: true, completion: nil)
-//        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,7 +71,7 @@ class KNNViewController: UIViewController {
             let position = touch.location(in: panelView)
             switch mlStep {
             case .train:
-                drawIn(position, geometryType: GeometryType(rawValue: kNNPickerView.selectedRow(inComponent: 1)) ?? .circle)
+                drawIn(position, geometryType: currentType)
                 break
             default:
                 drawIn(position, geometryType: .__totalCount)
@@ -97,16 +100,33 @@ class KNNViewController: UIViewController {
         y.removeAll()
         XTest.removeAll()
         yTest.removeAll()
-        predictLayers.removeAll()
+        
+        cleanTest()
 
+        model.debugRadiusCallback = { [weak self] radiuses in
+            self?.radiuses = radiuses
+        }
+        
+        trainBarButtonItem.title = String(describing: k)
+        model = KNN(k: k, distanceMetric: Distance.euclideanDistance())
+    }
+
+    @IBAction func selectK(_ sender: UIBarButtonItem) {
+        tableView.isHidden = !tableView.isHidden
+    }
+    
+    @IBAction func cleanTest(_ sender: Any) {
+        cleanTest()
+    }
+    
+    // MARK: - Helper
+    func cleanTest() {
+        predictLayers.removeAll()
+        
         if let subLayers = panelView.layer.sublayers {
             for layer in subLayers {
                 layer.removeFromSuperlayer()
             }
         }
-        model.debugRadiusCallback = { [weak self] radiuses in
-            self?.radiuses = radiuses
-        }
     }
-
 }

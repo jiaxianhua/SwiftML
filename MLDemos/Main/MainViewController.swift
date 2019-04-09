@@ -14,10 +14,10 @@ class MainViewController: UIViewController {
     
     let mlCollections = MLCollections(title: "Swift ML", sections: [
         MLSection(title: "KNN", items: [
-            MLItem(image: UIImage(named: "KNN")!, title: "KNN Classifer")
+            MLItem(image: UIImage(named: "KNN")!, title: "KNN Classifer", segue: "KNNSegue")
             ]),
         MLSection(title: "KMeans", items: [
-            MLItem(image: UIImage(named: "KNN")!, title: "KMeans Cluster")
+            MLItem(image: UIImage(named: "KNN")!, title: "KMeans Cluster", segue: "KMeansSegue")
             ])
         ])
     

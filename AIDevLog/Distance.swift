@@ -35,4 +35,8 @@ public struct Distance {
     public static func euclideanDistance() -> (([Double], [Double]) -> Double) {
         return { self.euclideanDistance($0, $1) }
     }
+    
+    public static func euclideanDistance() -> ((CGPoint, CGPoint) -> Double) {
+        return { $0.distanceTo($1) }
+    }
 }

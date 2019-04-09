@@ -13,7 +13,18 @@ enum MLStep: Int {
     case predict
 }
 
-enum GeometryType: Int  {
+enum Geometry2DType: Int  {
+    case circle
+    case square
+    case triangle
+    case __totalCount
+    
+    static func numberOfCases() -> Int {
+        return Geometry2DType.__totalCount.rawValue
+    }
+}
+
+enum Geometry3DType: Int  {
     case box
     case pyramid
     case sphere
@@ -21,18 +32,29 @@ enum GeometryType: Int  {
     case cone
     case tube
     case torus
-    
-    case circle
-    case triangle
-    case flower
     case __totalCount
     
     static func numberOfCases() -> Int {
-        return GeometryType.__totalCount.rawValue
+        return Geometry3DType.__totalCount.rawValue
     }
 }
 
-extension GeometryType: CustomStringConvertible {
+extension Geometry2DType: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .circle:
+            return "circle"
+        case .square:
+            return "flower"
+        case .triangle:
+            return "triangle"
+        case .__totalCount:
+            fatalError()
+        }
+    }
+}
+
+extension Geometry3DType: CustomStringConvertible {
     var description: String {
         switch self {
         case .box:
@@ -49,12 +71,6 @@ extension GeometryType: CustomStringConvertible {
             return "tube"
         case .torus:
             return "torus"
-        case .circle:
-            return "circle"
-        case .triangle:
-            return "triangle"
-        case .flower:
-            return "flower"
         case .__totalCount:
             fatalError()
         }
