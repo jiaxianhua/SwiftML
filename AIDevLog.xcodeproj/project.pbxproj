@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2EA4CD225F2715008C024D /* DecisionTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EA4CC225F2715008C024D /* DecisionTree.swift */; };
+		8B2EA4D1225F2D7B008C024D /* DecisionTreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EA4D0225F2D7B008C024D /* DecisionTreeTest.swift */; };
+		8B2EA4D2225F2DEB008C024D /* DecisionTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EA4CC225F2715008C024D /* DecisionTree.swift */; };
 		8BFA2F94225C343500E6BCBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F93225C343500E6BCBA /* MainViewController.swift */; };
 		8BFA2F96225C348C00E6BCBA /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F95225C348C00E6BCBA /* MainViewController+CollectionView.swift */; };
 		8BFA2F98225C352700E6BCBA /* MLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA2F97225C352700E6BCBA /* MLCollectionViewCell.swift */; };
@@ -89,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B2EA4CC225F2715008C024D /* DecisionTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionTree.swift; sourceTree = "<group>"; };
+		8B2EA4D0225F2D7B008C024D /* DecisionTreeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionTreeTest.swift; sourceTree = "<group>"; };
 		8BFA2F93225C343500E6BCBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BFA2F95225C348C00E6BCBA /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		8BFA2F97225C352700E6BCBA /* MLCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -228,6 +233,7 @@
 				DE1A9AEF2259DC6800CCC350 /* Distance.swift */,
 				DE8C785E225B89BC008C098B /* KMeans.swift */,
 				DE8C787E225BA63A008C098B /* Feature.swift */,
+				8B2EA4CC225F2715008C024D /* DecisionTree.swift */,
 			);
 			path = AIDevLog;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				DEC0A5F322584283009B3499 /* KNNTests.swift */,
 				DEC0A5F522584283009B3499 /* Info.plist */,
 				DE1BAEEB225BC92A003CB1D4 /* KMeansTests.swift */,
+				8B2EA4D0225F2D7B008C024D /* DecisionTreeTest.swift */,
 			);
 			path = AIDevLogTests;
 			sourceTree = "<group>";
@@ -467,6 +474,7 @@
 				DE8C787F225BA63A008C098B /* Feature.swift in Sources */,
 				DE1A9AF02259DC6800CCC350 /* Distance.swift in Sources */,
 				DEC0A600225842B8009B3499 /* Base.swift in Sources */,
+				8B2EA4CD225F2715008C024D /* DecisionTree.swift in Sources */,
 				DE8C785F225B89BC008C098B /* KMeans.swift in Sources */,
 				DEC0A6032258A20A009B3499 /* KNN.swift in Sources */,
 			);
@@ -479,9 +487,11 @@
 				DE1BAF22225BD542003CB1D4 /* Feature.swift in Sources */,
 				DEC0A6042258AE9B009B3499 /* KNN.swift in Sources */,
 				DEC0A60122585C84009B3499 /* Base.swift in Sources */,
+				8B2EA4D2225F2DEB008C024D /* DecisionTree.swift in Sources */,
 				DE1BAEEC225BC92A003CB1D4 /* KMeansTests.swift in Sources */,
 				DEC0A5F422584283009B3499 /* KNNTests.swift in Sources */,
 				DE1BAEED225BCABB003CB1D4 /* KMeans.swift in Sources */,
+				8B2EA4D1225F2D7B008C024D /* DecisionTreeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
