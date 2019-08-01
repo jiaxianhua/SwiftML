@@ -52,7 +52,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = mlCollections.sections[indexPath.section].items[indexPath.item]
+        let item = mlCollections.sections[indexPath.section].items[0]
 
         if indexPath.item % 2 == 0 {
             performSegue(withIdentifier: item.segue, sender: nil)

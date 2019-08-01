@@ -34,7 +34,7 @@ class KNNViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var panelView: UIView!
     @IBOutlet weak var trainBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var kBarBtuuonItem: UIBarButtonItem!
+    @IBOutlet weak var kBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
 
     var mlStep = MLStep.train {
@@ -108,6 +108,7 @@ class KNNViewController: UIViewController {
         model.debugRadiusCallback = { [weak self] radiuses in
             self?.radiuses = radiuses
         }
+        kBarButtonItem.title = "k: \(k)"
     }
 
     @IBAction func selectK(_ sender: UIBarButtonItem) {

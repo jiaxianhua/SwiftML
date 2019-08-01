@@ -140,7 +140,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="0rg-Du-7ux" id="uNC-I5-xLC"/>
-                        <outlet property="kBarBtuuonItem" destination="LMK-K8-iyG" id="yaV-VQ-37L"/>
+                        <outlet property="kBarButtonItem" destination="LMK-K8-iyG" id="yaV-VQ-37L"/>
                         <outlet property="panelView" destination="BBX-T1-i6K" id="oWS-C4-aut"/>
                         <outlet property="tableView" destination="dou-UM-hYV" id="Kd8-Km-Mvl"/>
                         <outlet property="trainBarButtonItem" destination="bD5-pr-Zu7" id="Qms-ff-FGH"/>
@@ -287,22 +287,35 @@
                     <connections>
                         <outlet property="collectionView" destination="dDG-YO-py2" id="lGw-Ge-gpf"/>
                         <segue destination="mz4-hQ-tfD" kind="show" identifier="KMeansSegue" id="wtv-JS-SOS"/>
-                        <segue destination="L1f-rO-P0s" kind="presentation" identifier="ARKMeansSegue" id="wN5-qc-CcG"/>
+                        <segue destination="L1f-rO-P0s" kind="show" identifier="ARKMeansSegue" id="wN5-qc-CcG"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="KNNSegue" id="xjs-sE-NDi"/>
+                        <segue destination="LZ6-F4-Xgf" kind="show" identifier="ARKNNSegue" id="fw5-ma-GoW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iA3-zi-mmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="933" y="-599"/>
         </scene>
-        <!--Means View Controller-->
+        <!--AR KMeans-->
         <scene sceneID="HQU-fY-2Vm">
             <objects>
-                <viewController storyboardIdentifier="ARKMeansViewController" id="L1f-rO-P0s" customClass="ARKMeansViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARKMeansViewController" title="AR KMeans" id="L1f-rO-P0s" customClass="ARKMeansViewController" customModule="MLDemos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rwW-Gb-lbi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIP" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbr-C5-aVP">
+                                <rect key="frame" x="165" y="419" width="84" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qbr-C5-aVP" firstAttribute="centerY" secondItem="rwW-Gb-lbi" secondAttribute="centerY" id="aTl-Xm-tuB"/>
+                            <constraint firstItem="qbr-C5-aVP" firstAttribute="centerX" secondItem="rwW-Gb-lbi" secondAttribute="centerX" id="vDo-GV-Pfu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XAE-Tw-pzS"/>
                     </view>
                 </viewController>
@@ -382,10 +395,10 @@
             </objects>
             <point key="canvasLocation" x="1743" y="-599"/>
         </scene>
-        <!--View Controller-->
+        <!--AR KNN-->
         <scene sceneID="aMs-OJ-0IN">
             <objects>
-                <viewController storyboardIdentifier="ARKNNViewController" id="LZ6-F4-Xgf" customClass="ARKNNViewController" customModule="MLDemos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ARKNNViewController" title="AR KNN" id="LZ6-F4-Xgf" customClass="ARKNNViewController" customModule="MLDemos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLt-xU-GeB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -423,7 +436,7 @@
                                 </constraints>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rYg-kI-ubz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="xaD-ll-l4O"/>
                                 </constraints>
@@ -438,14 +451,14 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NW-6E-nzt">
-                                <rect key="frame" x="364" y="108" width="30" height="30"/>
+                                <rect key="frame" x="364" y="152" width="30" height="30"/>
                                 <state key="normal" title="K"/>
                                 <connections>
                                     <action selector="selectK" destination="LZ6-F4-Xgf" eventType="touchUpInside" id="qAr-Ms-h2a"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qnx-oc-r08">
-                                <rect key="frame" x="294" y="158" width="100" height="180"/>
+                                <rect key="frame" x="294" y="202" width="100" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="EAD-cX-f5a"/>
