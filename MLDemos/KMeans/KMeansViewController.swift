@@ -9,6 +9,7 @@
 import UIKit
 
 class KMeansViewController: UIViewController {
+    // MARK: - Property
     let radius: CGFloat = 5
     var centerRadius: CGFloat = 1.0
 
@@ -42,14 +43,15 @@ class KMeansViewController: UIViewController {
         }
     }
 
+    // MARK: - Outlet
     @IBOutlet weak var trainBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var panelView: UIView!
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         reset()
-//            .title = String(describing: k)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,6 +63,7 @@ class KMeansViewController: UIViewController {
         }
     }
     
+    // MARK: - Action
     @IBAction func generalRamdom() {
         reset()
         X.append(contentsOf: generalPoints(1000))
@@ -118,6 +121,7 @@ class KMeansViewController: UIViewController {
     @IBAction func setMinDistance(_ sender: Any) {
     }
 
+    // MARK: - Helper
     func generalPoints(_ numPoints: Int) -> [CGPoint] {
         var points = [CGPoint]()
         for _ in 0..<numPoints {

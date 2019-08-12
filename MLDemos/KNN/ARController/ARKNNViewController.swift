@@ -12,12 +12,7 @@ import ARKit
 import AIDevLog
 
 class ARKNNViewController: UIViewController, ARSCNViewDelegate {
-    @IBOutlet weak var geometrySegmentControl: UISegmentedControl!
-
-    @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var tableView: UITableView!
-
-    @IBOutlet weak var kButton: UIButton!
+    // MARK: - Property
     let radius: CGFloat = 0.05
 
     public var X: [[Double]] = []
@@ -32,18 +27,6 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
         }
     }
 
-    func drawSphere(center: SCNVector3, radius: Float) {
-        let geometry = SCNSphere(radius: CGFloat(radius) + self.radius)
-  
-        geometry.firstMaterial?.diffuse.contents = UIColor(red: 0.1, green: 0.1, blue: 0.8, alpha: 0.7)
-        
-        let node = SCNNode()
-        node.geometry = geometry
-        node.position = center
-        sceneView.scene.rootNode.addChildNode(node)
-    }
-
-    @IBOutlet weak var trainButton: UIButton!
     var model = KNN<[Double], Geometry3DType>(k: 1, distanceMetric: Distance.euclideanDistance())
 
     var mlStep = MLStep.train {
@@ -56,7 +39,17 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+    
+    // MARK: - Outlet
+    @IBOutlet weak var geometrySegmentControl: UISegmentedControl!
+    
+    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var kButton: UIButton!
+    @IBOutlet weak var trainButton: UIButton!
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,7 +70,30 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
         addTapGestureToSceneView()
         reset()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Create a session configuration
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        
+        // Run the view's session
+        sceneView.session.run(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Pause the view's session
+        sceneView.session.pause()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+    }
 
+    // MARK: - Action
     @IBAction func reset() {
         mlStep = .train
         X.removeAll()
@@ -115,47 +131,12 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
             break
         }
     }
-    
-    func drawPredict() {
-        _ = zip(XTest, yTest).map({ (sample_X, sample_y) in
-            let position = SCNVector3(sample_X[0], sample_X[1], sample_X[2])
-            let geometryType = sample_y
-            
-            var node = SCNNode()
-            switch geometryType {
-            case .box:
-                node = createBox()
-                break
-            case .pyramid:
-                node = createPyramid()
-                break
-            case .sphere:
-                node = createSphere()
-                break
-            case .cylinder:
-                node = createCylinder()
-                break
-            case .cone:
-                node = createCone()
-                break
-            case .tube:
-                node = createTube()
-                break
-            case .torus:
-                node = createTorus()
-                break
-            default:
-                break
-            }
-            node.position = position
-            sceneView.scene.rootNode.addChildNode(node)
-        })
-    }
 
     @IBAction func selectK() {
         self.tableView.isHidden = !self.tableView.isHidden
     }
 
+    // MARK: - Helper
     func addTapGestureToSceneView() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(withGestureRecognizer:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -219,26 +200,51 @@ class ARKNNViewController: UIViewController, ARSCNViewDelegate {
         node.position = position
         sceneView.scene.rootNode.addChildNode(node)
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.isLightEstimationEnabled = true
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+    
+    func drawPredict() {
+        _ = zip(XTest, yTest).map({ (sample_X, sample_y) in
+            let position = SCNVector3(sample_X[0], sample_X[1], sample_X[2])
+            let geometryType = sample_y
+            
+            var node = SCNNode()
+            switch geometryType {
+            case .box:
+                node = createBox()
+                break
+            case .pyramid:
+                node = createPyramid()
+                break
+            case .sphere:
+                node = createSphere()
+                break
+            case .cylinder:
+                node = createCylinder()
+                break
+            case .cone:
+                node = createCone()
+                break
+            case .tube:
+                node = createTube()
+                break
+            case .torus:
+                node = createTorus()
+                break
+            default:
+                break
+            }
+            node.position = position
+            sceneView.scene.rootNode.addChildNode(node)
+        })
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        // Pause the view's session
-        sceneView.session.pause()
-    }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+    
+    func drawSphere(center: SCNVector3, radius: Float) {
+        let geometry = SCNSphere(radius: CGFloat(radius) + self.radius)
+        
+        geometry.firstMaterial?.diffuse.contents = UIColor(red: 0.1, green: 0.1, blue: 0.8, alpha: 0.7)
+        
+        let node = SCNNode()
+        node.geometry = geometry
+        node.position = center
+        sceneView.scene.rootNode.addChildNode(node)
     }
 }

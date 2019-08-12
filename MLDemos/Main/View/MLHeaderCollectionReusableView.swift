@@ -11,5 +11,4 @@ import UIKit
 class MLHeaderCollectionReusableView: UICollectionReusableView {
     static let identifier = String(describing: MLHeaderCollectionReusableView.self)
     @IBOutlet weak var titleLabel: UILabel!
-    
 }

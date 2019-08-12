@@ -124,7 +124,7 @@
 		DEC0A6022258A20A009B3499 /* KNN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KNN.swift; sourceTree = "<group>"; };
 		DEC0A6352258B946009B3499 /* MLDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC0A6372258B946009B3499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DEC0A6392258B946009B3499 /* KNNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KNNViewController.swift; path = MLDemos/KNN/KNNViewController.swift; sourceTree = SOURCE_ROOT; };
+		DEC0A6392258B946009B3499 /* KNNViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KNNViewController.swift; path = MLDemos/KNN/Controller/KNNViewController.swift; sourceTree = SOURCE_ROOT; };
 		DEC0A63C2258B946009B3499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DEC0A63E2258B946009B3499 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEC0A6432258B946009B3499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,13 +184,67 @@
 		8BFA2F92225C340A00E6BCBA /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8BFA2F93225C343500E6BCBA /* MainViewController.swift */,
-				8BFA2F95225C348C00E6BCBA /* MainViewController+CollectionView.swift */,
-				8BFA2F97225C352700E6BCBA /* MLCollectionViewCell.swift */,
-				8BFA2F99225C364F00E6BCBA /* MLCollection.swift */,
-				8BFA2F9B225C44C600E6BCBA /* MLHeaderCollectionReusableView.swift */,
+				DE612A4A2301BE86002ACEC5 /* Model */,
+				DE612A492301BE7D002ACEC5 /* View */,
+				DE612A482301BE76002ACEC5 /* Controller */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DE612A452301BE18002ACEC5 /* ARController */ = {
+			isa = PBXGroup;
+			children = (
+				DE1A9AEB2259D18D00CCC350 /* ARKNNViewController.swift */,
+				DE1A9AED2259D24A00CCC350 /* ARKNNViewController+Plot.swift */,
+				DE1A9AF3225A088A00CCC350 /* ARKNNViewController+TableView.swift */,
+			);
+			path = ARController;
+			sourceTree = "<group>";
+		};
+		DE612A462301BE2D002ACEC5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DEC0A6392258B946009B3499 /* KNNViewController.swift */,
+				DEC0A6592258C055009B3499 /* KNNViewControler+UIPickerView.swift */,
+				DEC0A65B2258C09F009B3499 /* KNNViewController+Plot.swift */,
+				8BFA2FA7225C856D00E6BCBA /* KNNViewController+CollectionView.swift */,
+				8BFA2FA9225C908600E6BCBA /* KNNViewController+TableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DE612A472301BE3D002ACEC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA2FAB225C913800E6BCBA /* KNNTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE612A482301BE76002ACEC5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA2F93225C343500E6BCBA /* MainViewController.swift */,
+				8BFA2F95225C348C00E6BCBA /* MainViewController+CollectionView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DE612A492301BE7D002ACEC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA2F97225C352700E6BCBA /* MLCollectionViewCell.swift */,
+				8BFA2F9B225C44C600E6BCBA /* MLHeaderCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE612A4A2301BE86002ACEC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA2F99225C364F00E6BCBA /* MLCollection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DE924AE82258C53E0066B702 /* Frameworks */ = {
@@ -285,15 +339,9 @@
 		DEC0A6582258C015009B3499 /* KNN */ = {
 			isa = PBXGroup;
 			children = (
-				DE1A9AEB2259D18D00CCC350 /* ARKNNViewController.swift */,
-				DE1A9AED2259D24A00CCC350 /* ARKNNViewController+Plot.swift */,
-				DE1A9AF3225A088A00CCC350 /* ARKNNViewController+TableView.swift */,
-				DEC0A6392258B946009B3499 /* KNNViewController.swift */,
-				DEC0A6592258C055009B3499 /* KNNViewControler+UIPickerView.swift */,
-				DEC0A65B2258C09F009B3499 /* KNNViewController+Plot.swift */,
-				8BFA2FA7225C856D00E6BCBA /* KNNViewController+CollectionView.swift */,
-				8BFA2FA9225C908600E6BCBA /* KNNViewController+TableView.swift */,
-				8BFA2FAB225C913800E6BCBA /* KNNTableViewCell.swift */,
+				DE612A472301BE3D002ACEC5 /* View */,
+				DE612A462301BE2D002ACEC5 /* Controller */,
+				DE612A452301BE18002ACEC5 /* ARController */,
 			);
 			path = KNN;
 			sourceTree = "<group>";

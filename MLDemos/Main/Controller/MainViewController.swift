@@ -9,9 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
-    
+    // MARK: - Property
     let mlCollections = MLCollections(title: "Swift ML", sections: [
         MLSection(title: "KNN", items: [
             MLItem(image: UIImage(named: "KNN")!, title: "KNN Classifer", segue: "KNNSegue")
@@ -21,6 +19,10 @@ class MainViewController: UIViewController {
             ])
         ])
     
+    // MARK: - Outlet
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

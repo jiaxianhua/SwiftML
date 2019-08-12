@@ -11,6 +11,7 @@ import AIDevLog
 import ARKit
 
 class KNNViewController: UIViewController {
+    // MARK: - Property
     let imagesNamed = ["OvalSelected", "RectangleSelected", "TriangleSelected"]
 
     let radius: CGFloat = 5
@@ -20,6 +21,9 @@ class KNNViewController: UIViewController {
     var y: [Geometry2DType] = []
     var XTest: [CGPoint] = []
     var yTest: [Geometry2DType] = []
+    var currentType = Geometry2DType.circle
+    public var predictLayers: [CALayer] = []
+    var model = KNN<CGPoint, Geometry2DType>(k: 1, distanceMetric: Distance.euclideanDistance())
     var radiuses: [Double] = [] {
         didSet {
             for (center, r) in zip(XTest, radiuses) {
@@ -27,10 +31,8 @@ class KNNViewController: UIViewController {
             }
         }
     }
-    var currentType = Geometry2DType.circle
-    public var predictLayers: [CALayer] = []
-    var model = KNN<CGPoint, Geometry2DType>(k: 1, distanceMetric: Distance.euclideanDistance())
 
+    // MARK: - Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var panelView: UIView!
     @IBOutlet weak var trainBarButtonItem: UIBarButtonItem!
@@ -48,6 +50,7 @@ class KNNViewController: UIViewController {
         }
     }
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,6 +83,7 @@ class KNNViewController: UIViewController {
         }
     }
 
+    // MARK: - Action
     @IBAction func train(_ sender: UIBarButtonItem) {
         switch mlStep {
         case .train:
