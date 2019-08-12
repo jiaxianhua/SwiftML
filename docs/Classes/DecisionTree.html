@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>KNN Class Reference</title>
+    <title>DecisionTree Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/KNN" class="dashAnchor"></a>
-    <a title="KNN Class Reference"></a>
+    <a name="//apple_ref/swift/Class/DecisionTree" class="dashAnchor"></a>
+    <a title="DecisionTree Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AIDevLog Docs</a> (61% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AIDevLog Reference</a>
         <img id="carat" src="../img/carat.png" />
-        KNN Class Reference
+        DecisionTree Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -111,14 +111,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>KNN</h1>
+            <h1>DecisionTree</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">KNN</span><span class="o">&lt;</span><span class="kt">Feature</span><span class="p">,</span> <span class="kt">Label</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Label</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DecisionTree</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Label</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Value</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">Label</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
-            <p>KNN</p>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -127,9 +127,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8AIDevLog3KNNC1k33_6E0E8406C7C8514A02A7D85FD49C52C1LLSivp"></a>
-                    <a name="//apple_ref/swift/Property/k" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC1k33_6E0E8406C7C8514A02A7D85FD49C52C1LLSivp">k</a>
+                    <a name="/s:8AIDevLog12DecisionTreeC7Featurea"></a>
+                    <a name="//apple_ref/swift/Alias/Feature" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -137,14 +137,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Number of neighbors to use by default for :meth:<code>kneighbors</code> queries</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">Feature</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Value</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -154,9 +154,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayxGvp"></a>
+                    <a name="/s:8AIDevLog12DecisionTreeC1X33_892AB82079AFB64289C0CE5454D51354LLSaySayxGGvp"></a>
                     <a name="//apple_ref/swift/Property/X" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayxGvp">X</a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC1X33_892AB82079AFB64289C0CE5454D51354LLSaySayxGGvp">X</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -171,7 +171,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">X</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">X</span><span class="p">:</span> <span class="p">[[</span><span class="kt">Value</span><span class="p">]]</span></code></pre>
 
                         </div>
                       </div>
@@ -181,9 +181,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8AIDevLog3KNNC1y33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayq_Gvp"></a>
+                    <a name="/s:8AIDevLog12DecisionTreeC1y33_892AB82079AFB64289C0CE5454D51354LLSayq_Gvp"></a>
                     <a name="//apple_ref/swift/Property/y" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC1y33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayq_Gvp">y</a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC1y33_892AB82079AFB64289C0CE5454D51354LLSayq_Gvp">y</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,121 +208,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8AIDevLog3KNNC14distanceMetric33_6E0E8406C7C8514A02A7D85FD49C52C1LLySdx_xtcvp"></a>
-                    <a name="//apple_ref/swift/Property/distanceMetric" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC14distanceMetric33_6E0E8406C7C8514A02A7D85FD49C52C1LLySdx_xtcvp">distanceMetric</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>distance</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">distanceMetric</span><span class="p">:</span> <span class="p">(</span><span class="n">_</span> <span class="nv">x1</span><span class="p">:</span> <span class="kt">Feature</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x2</span><span class="p">:</span> <span class="kt">Feature</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8AIDevLog3KNNC19debugRadiusCallbackySaySdGcSgvp"></a>
-                    <a name="//apple_ref/swift/Property/debugRadiusCallback" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC19debugRadiusCallbackySaySdGcSgvp">debugRadiusCallback</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>draw radius for debug</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugRadiusCallback</span><span class="p">:</span> <span class="p">(([</span><span class="kt">Double</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8AIDevLog3KNNC1k14distanceMetricACyxq_GSi_Sdx_xtctcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(k:distanceMetric:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC1k14distanceMetricACyxq_GSi_Sdx_xtctcfc">init(k:distanceMetric:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Constructor</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span> <span class="p">(</span><span class="nv">k</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">distanceMetric</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">x1</span><span class="p">:</span> <span class="kt">Feature</span><span class="p">,</span> <span class="n">_</span> <span class="nv">x2</span><span class="p">:</span> <span class="kt">Feature</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>k</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>k</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>distanceMetric</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>distance</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8AIDevLog3KNNC3fit1X1yySayxG_Sayq_GtF"></a>
+                    <a name="/s:8AIDevLog12DecisionTreeC3fit1X1yySaySayxGG_Sayq_GtF"></a>
                     <a name="//apple_ref/swift/Method/fit(X:y:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC3fit1X1yySayxG_Sayq_GtF">fit(X:y:)</a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC3fit1X1yySaySayxGG_Sayq_GtF">fit(X:y:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,47 +218,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>train</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fit</span><span class="p">(</span><span class="kt"><a href="../Classes/KNN.html#/s:8AIDevLog3KNNC1X33_6E0E8406C7C8514A02A7D85FD49C52C1LLSayxGvp">X</a></span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">],</span> <span class="nv">y</span><span class="p">:</span> <span class="p">[</span><span class="kt">Label</span><span class="p">])</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fit</span><span class="p">(</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC1X33_892AB82079AFB64289C0CE5454D51354LLSaySayxGGvp">X</a></span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">],</span> <span class="nv">y</span><span class="p">:</span> <span class="p">[</span><span class="kt">Label</span><span class="p">])</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>X</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Training set</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>y</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Target values</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -378,9 +235,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8AIDevLog3KNNC7predict5XTestSayq_GSayxG_tF"></a>
-                    <a name="//apple_ref/swift/Method/predict(XTest:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8AIDevLog3KNNC7predict5XTestSayq_GSayxG_tF">predict(XTest:)</a>
+                    <a name="/s:8AIDevLog12DecisionTreeC7predict1XySaySayxGG_tF"></a>
+                    <a name="//apple_ref/swift/Method/predict(X:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC7predict1XySaySayxGG_tF">predict(X:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -388,39 +245,97 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Labels for xTest</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">predict</span><span class="p">(</span><span class="kt">XTest</span><span class="p">:</span> <span class="p">[</span><span class="kt">Feature</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Label</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">predict</span><span class="p">(</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC1X33_892AB82079AFB64289C0CE5454D51354LLSaySayxGGvp">X</a></span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>XTest</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Test set</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog12DecisionTreeC14calcShannonEnt7dataSetSdSaySayxGG_tF"></a>
+                    <a name="//apple_ref/swift/Method/calcShannonEnt(dataSet:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC14calcShannonEnt7dataSetSdSaySayxGG_tF">calcShannonEnt(dataSet:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Target values</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calcShannonEnt</span><span class="p">(</span><span class="nv">dataSet</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog12DecisionTreeC12splitDataSet04dataG03col5valueSaySayxGGAI_SixtF"></a>
+                    <a name="//apple_ref/swift/Method/splitDataSet(dataSet:col:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC12splitDataSet04dataG03col5valueSaySayxGGAI_SixtF">splitDataSet(dataSet:col:value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">splitDataSet</span><span class="p">(</span><span class="nv">dataSet</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">],</span> <span class="nv">col</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:8AIDevLog12DecisionTreeC24chooseBestFeatureToSplit7dataSetSiSaySayxGG_tF"></a>
+                    <a name="//apple_ref/swift/Method/chooseBestFeatureToSplit(dataSet:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8AIDevLog12DecisionTreeC24chooseBestFeatureToSplit7dataSetSiSaySayxGG_tF">chooseBestFeatureToSplit(dataSet:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">chooseBestFeatureToSplit</span><span class="p">(</span><span class="nv">dataSet</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/DecisionTree.html#/s:8AIDevLog12DecisionTreeC7Featurea">Feature</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

@@ -10,6 +10,7 @@ import Foundation
 
 /// K-Means clustering.
 public class KMeans<Feature: FeatureProtocol> {
+    // MARK: - Property
 
     /// The number of clusters to form as well as the number of centroids to generate.
     let k: Int
@@ -22,9 +23,11 @@ public class KMeans<Feature: FeatureProtocol> {
 
     /// Sum of squared distances of samples to their closest cluster center.
     private(set) var centroids = [Feature]()
-    
+
     public var debugCentroidsCallback: (([Feature]) -> ())? = nil
-    
+
+    // MARK: - Init
+
     /// Constructor.
     ///
     /// - Parameters:
@@ -36,6 +39,7 @@ public class KMeans<Feature: FeatureProtocol> {
         self.maxIteration = maxIteration
     }
 
+    // MARK: - Helper
 
     /// index Of Nearest Center.
     ///

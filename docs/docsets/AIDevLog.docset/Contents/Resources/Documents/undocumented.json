@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/iosdevlog/iOSDevLog/AIDevLog/AIDevLog/Distance.swift",
+      "line": 11,
+      "symbol": "Distance",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/iosdevlog/iOSDevLog/AIDevLog/AIDevLog/Distance.swift",
+      "line": 35,
+      "symbol": "Distance.euclideanDistance()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/iosdevlog/iOSDevLog/AIDevLog"
+}

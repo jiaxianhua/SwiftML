@@ -62,12 +62,12 @@ class KMeansViewController: UIViewController {
             drawIn(position)
         }
     }
-    
+
     // MARK: - Action
     @IBAction func generalRamdom() {
         reset()
         X.append(contentsOf: generalPoints(1000))
-        X.forEach{ drawIn($0) }
+        X.forEach { drawIn($0) }
     }
 
     @IBAction func reset() {
@@ -82,22 +82,22 @@ class KMeansViewController: UIViewController {
         if let subLayers = panelView.layer.sublayers {
             subLayers.forEach { $0.removeFromSuperlayer() }
         }
-        
+
         model = KMeans<CGPoint>(k: k, maxIteration: maxIteration)
         model.debugCentroidsCallback = { [weak self] centers in
             self?.centers = centers
         }
-        
+
     }
 
     @IBAction func train(_ sender: Any) {
         if mlStep == .train {
             model.fit(X, convergeDistance: convergeDistance)
-            
+
             for (label, centroid) in zip(model.y, model.centroids) {
                 print("\(label): \(centroid)")
             }
-            
+
             y = model.predict(X)
             print("\nClassifications")
             for (feature, label) in zip(X, y) {
